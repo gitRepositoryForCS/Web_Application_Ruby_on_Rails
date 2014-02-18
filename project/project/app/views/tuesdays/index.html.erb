@@ -1,0 +1,29 @@
+<h1>Listing tuesdays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Event</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tuesdays.each do |tuesday| %>
+      <tr>
+        <td><%= tuesday.time %></td>
+        <td><%= tuesday.event %></td>
+        <td><%= link_to 'Show', tuesday %></td>
+        <td><%= link_to 'Edit', edit_tuesday_path(tuesday) %></td>
+        <td><%= link_to 'Destroy', tuesday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tuesday', new_tuesday_path %>

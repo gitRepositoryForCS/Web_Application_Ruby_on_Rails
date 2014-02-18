@@ -1,0 +1,25 @@
+<%= form_for(@monday) do |f| %>
+  <% if @monday.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@monday.errors.count, "error") %> prohibited this monday from being saved:</h2>
+
+      <ul>
+      <% @monday.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.text_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :event %><br>
+    <%= f.text_area :event %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

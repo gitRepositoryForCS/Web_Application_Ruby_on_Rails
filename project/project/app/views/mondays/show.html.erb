@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @monday.time %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @monday.event %>
+</p>
+
+<%= link_to 'Edit', edit_monday_path(@monday) %> |
+<%= link_to 'Back', mondays_path %>
