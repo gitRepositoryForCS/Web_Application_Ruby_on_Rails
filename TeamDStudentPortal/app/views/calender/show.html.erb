@@ -1,0 +1,62 @@
+          <h2>Calendar</h2>
+          <p>Events Info</p>
+          <p>
+		<div class="Calendar">
+  		<div id="idCalendarPre">&lt;&lt;</div>
+  		<div id="idCalendarNext">&gt;&gt;</div>
+  		<span id="idCalendarMonth">8</span>. <span id="idCalendarYear">2008</span> 
+  		<table cellspacing="0">
+    		  <thead>
+      		    <tr>
+        		<td>Sun</td>
+        		<td><%= link_to 'Mon', events_path %></td>
+        		<td>Tue</td>
+        		<td>Wed</td>
+        		<td>Thu</td>
+        		<td>Fri</td>
+        		<td>Sat</td>
+      		    </tr>
+    		  </thead>
+    		  <tbody id="idCalendar">
+    		  </tbody>
+  		</table>
+		</div>
+	  </p>
+
+
+<script language="JavaScript">
+
+var cale = new Calendar("idCalendar", {
+    SelectDay: new Date().setDate(10),
+    onSelectDay: function(o){ o.className = "onSelect"; },
+    onToday: function(o){ o.className = "onToday"; },
+    onFinish: function(){
+        $("idCalendarYear").innerHTML = this.Year; $("idCalendarMonth").innerHTML = this.Month;
+        var flag = [10,15,20];
+        for(var i = 0, len = flag.length; i < len; i++){
+            this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' onclick=\"alert('Data is:"+this.Year+"/"+this.Month+"/"+flag[i]+"');return false;\">" + flag[i] + "</a>";
+        }
+    }
+});
+
+$("idCalendarPre").onclick = function(){ cale.PreMonth(); }
+$("idCalendarNext").onclick = function(){ cale.NextMonth(); }
+
+</SCRIPT>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.carousel').carousel();
+  });
+</script>
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+
+
+
